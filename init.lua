@@ -93,7 +93,7 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 vim.opt.termguicolors = true -- NOTE: You should make sure your terminal supports this
-vim.opt.guifont = "JetBrainsMono NFM"
+vim.opt.guifont = 'JetBrainsMono NFM'
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -810,18 +810,18 @@ require('lazy').setup({
     end,
   },
 
-  { -- Set lualine as statusline
-    'nvim-lualine/lualine.nvim',
-    -- See `:help lualine.txt`
-    opts = {
-      options = {
-        icons_enabled = false,
-        theme = 'onedark',
-        component_separators = '|',
-        section_separators = '',
-      },
-    },
-  },
+  --  { -- Set lualine as statusline
+  --    'nvim-lualine/lualine.nvim',
+  --    -- See `:help lualine.txt`
+  --    opts = {
+  --      options = {
+  --        icons_enabled = false,
+  --        theme = 'onedark',
+  --        component_separators = '|',
+  --        section_separators = '',
+  --      },
+  --    },
+  --  },
 
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
