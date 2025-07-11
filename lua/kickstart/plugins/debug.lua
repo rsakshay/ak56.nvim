@@ -42,8 +42,7 @@ return {
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
         'delve',
-        'c',
-        'cpp'
+        'codelldb',
       },
     }
 
@@ -62,14 +61,23 @@ return {
       type = 'executable',
       command = 'lldb-vscode', -- adjust as needed, must be absolute path
       --args:    string[],       -- arguments for the command
-      name = 'lldb'
+      name = 'lldb',
+    }
+
+    dap.adapters.codelldb = {
+      type = 'server',
+      port = '${port}',
+      executable = {
+        command = vim.fn.stdpath 'data' .. '/mason/packages/codelldb/extension/adapter/codelldb',
+        args = { '--port', '${port}' },
+      },
     }
 
     dap.configurations.cpp = {
       {
-        name = "Launch",
-        type = "lldb",
-        request = "launch",
+        name = 'Launch',
+        type = 'codelldb',
+        request = 'launch',
         program = function()
           return vim.fn.input('Path to executable: ' .. vim.fn.getcwd() .. '/' .. 'file')
         end,
